@@ -1,0 +1,12 @@
+<p class="heading">TRENDING</p>
+<div class="trending" id="trending">
+    <div class="cards">
+        <div *ngFor="let trend of trending" class="trendcard" id={{trend.name}}>
+            <div class="card" style="background-image: url({{trend.image}})">
+            </div>
+            <span>{{trend.name}}</span><br>
+        </div>
+    </div>
+    <button class="left" (click)="sliderLeft($event)"> < </button>
+    <button class="right" (click)="sliderRight($event)"> > </button>
+</div>

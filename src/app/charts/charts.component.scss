@@ -1,0 +1,76 @@
+
+    $move-x:-1000px;
+    $white-color:white;
+:root{
+    movex:-1000px;
+}
+.topCharts{
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+.slide1000{
+    animation-name: left1100;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.cards{
+    overflow: hidden;
+    /* margin: 20px 20px 20px 20px; */
+    align-items: center;
+    display: -webkit-box;
+}
+.chartcard{
+    height: 200px;
+    width:200px;
+    /* background-color: aquamarine; */
+    margin: 20px 20px 20px 20px;
+    color: $white-color;
+    font-weight: 1000;
+    letter-spacing: 2px;
+    text-align: center; 
+    border-radius: 2%;
+} 
+button{
+    height:50px;
+    width: 50px;
+    border: 1px white solid; 
+    border-radius: 50%;
+    background-color: white;
+    color:black;
+    opacity: 0.3; 
+}
+
+.right{
+    position: absolute;
+    top:40%;
+    left: 99%;
+}
+
+.left{
+    position: absolute;
+    top:40%;
+    left: -3%;
+}
+button:hover{
+    opacity: 0.8;
+    transition: 0.5s;
+    font-size: large;
+    transform: translateX(-10%);
+}
+.heading{
+    color: rgb(61, 60, 60);
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: large;
+    margin-left: 20px;
+}
+@keyframes left1100{
+    0% { 
+        transform: translateX(0);
+    }
+    100% { 
+        transform: translateX(var(--movex)) ;
+    }
+} 

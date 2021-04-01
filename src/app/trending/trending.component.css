@@ -1,0 +1,76 @@
+.trending{
+    overflow: visible;
+    width: 100%;
+    align-items: center;
+    display: -webkit-box;
+    position: relative;
+
+}
+.slide1000{
+    animation-name: left1000;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.card{
+    height: 200px;
+    width:200px;
+    margin: 20px 20px 20px 20px;
+    color: black;
+    font-weight: 1000;
+    letter-spacing: 2px;
+    text-align: center; 
+    border-radius: 10%;
+    background-size: cover;
+} 
+/* .card:first-child{
+    margin: 20px 40px 20px 0px;
+} */
+.cards{
+    overflow: hidden;
+    align-items: center;
+    display: -webkit-box;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+button{
+    height:50px;
+    width: 50px;
+    border: 1px white solid; 
+    border-radius: 50%;
+    background-color: white;
+    color:black;
+    opacity: 0.3; 
+}
+
+.right{
+    position: absolute;
+    top:40%;
+    left: 99%;
+}
+
+.left{
+    position: absolute;
+    top:40%;
+    left: -3%;
+}
+button:hover{
+    opacity: 0.8;
+    transition: 0.5s;
+    font-size: large;
+}
+.heading{
+    color: rgb(61, 60, 60);
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: large;
+    margin-left: 20px;
+}
+@keyframes left1000{
+    0% { 
+        transform: translateX(0);
+    }
+    100% { 
+        transform: translateX(-500px) ;
+    }
+} 

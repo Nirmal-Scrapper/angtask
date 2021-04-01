@@ -1,0 +1,13 @@
+<p class="heading">TOP CHARTS</p>
+<div class="topCharts" id="topCharts" >
+    <div class="cards" >
+        <div *ngFor="let chart of charts;let i=index" class="chartcard {{chart.langauge}}" [ngStyle]="{backgroundColor:getColor(i)}" id="{{chart.langauge}}"> 
+            <div>
+                <span>{{chart.langauge}}</span><br>
+                <span>{{chart.songCount}}</span>
+            </div>
+        </div>
+    </div>
+    <button class="left" (click)="sliderLeft($event)"> < </button>
+    <button class="right" (click)="sliderRight($event)"> > </button>
+</div>

@@ -1,0 +1,68 @@
+.topPicks{
+    overflow: visible;
+    width: 100%;
+    align-items: center;
+    display: -webkit-box;
+    position: relative;
+}
+.slide3100{
+    animation-name: left3100;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.card{
+    height: 200px;
+    width:400px;
+    background-size: cover;
+    margin: 20px 20px 20px 20px;
+    border-radius: 2%;
+} 
+.cards{
+    overflow: hidden;
+    /* margin: 20px 20px 20px 20px; */
+    align-items: center;
+    display: -webkit-box;
+    text-align: center;
+    width: 100%;
+}
+.heading{
+    color: rgb(61, 60, 60);
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: large;
+    margin-left: 20px;
+}
+button{
+    height:50px;
+    width: 50px;
+    border: 1px white solid; 
+    border-radius: 50%;
+    background-color: white;
+    color:black;
+    opacity: 0.3; 
+}
+
+.right{
+    position: absolute;
+    top:40%;
+    left: 99%;
+}
+
+.left{
+    position: absolute;
+    top:40%;
+    left: -3%;
+}
+button:hover{
+    opacity: 0.8;
+    transition: 0.5s;
+    font-size: large;
+}
+@keyframes left3100{
+    0% { 
+        transform: translateX(0);
+    }
+    100% { 
+        transform: translateX(-1000px) ;
+    }
+} 
