@@ -15,7 +15,7 @@
     margin-top: 20px;
     height: 5px;
     width: 88%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(234, 192, 240);
     position:fixed;
     bottom:70px;
     margin-left: 1%;
@@ -28,14 +28,14 @@
 }
 
 .songname{
-    width: 30%;
+    width: 10%;
     text-align:end;
     margin-top: 15px;
 }
 .mediaOption{
-    width: 40%;
+    width: 70%;
     display: inline;
-    margin-left: 13%;
+    margin-left: 33%;
 }
  .play{
     background-color: palevioletred;
@@ -58,14 +58,17 @@ button{
 
 .barball{
     position: absolute;
-    top:-3px;
+    top:-6px;
     left: 2%;
-    height: 10px;
-    width: 10px;
-    background-color: palevioletred;
+    height: 15px;
+    width: 5px;
+    background-color: white;
     border-radius: 50%;
+    border: 1px palevioletred solid;
 }
-
+.songpic{
+width: 100px;
+}
 /* animation-name: ballmove;
     animation-duration: 300s;
     animation-fill-mode: forwards;
