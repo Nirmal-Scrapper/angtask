@@ -8,13 +8,15 @@ import { TrendingComponent } from './trending/trending.component';
 import { ChartsComponent } from './charts/charts.component';
 import { SericeService } from './service/serice.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MiniplayerComponent } from './miniplayer/miniplayer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopPicksComponent,
     TrendingComponent,
-    ChartsComponent],
+    ChartsComponent,
+    MiniplayerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

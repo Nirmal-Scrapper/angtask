@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiniplayerComponent } from '../miniplayer/miniplayer.component';
 import { SericeService } from '../service/serice.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class TrendingComponent implements OnInit {
   }
 
   sliderLeft($event) {
-    let modifier = 500;
+    let modifier = document.getElementById('trending').offsetWidth-document.getElementById(this.trending[0].name).offsetWidth;
     if (this.to >= 0) {
       return;
     } else if (this.to + modifier >= 0) {
@@ -46,8 +47,8 @@ export class TrendingComponent implements OnInit {
         { transform: 'translateX(' + this.to + 'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards',easing:'ease-in'
       });
     }
     this.from = this.to;
@@ -59,7 +60,7 @@ export class TrendingComponent implements OnInit {
     console.log(conwidth, cardwidth);
     var width = ((cardwidth + 0) * this.trending.length) - conwidth;
     console.log(conwidth, cardwidth, width);
-    let modifier = 500;
+    let modifier = conwidth-cardwidth;
     if (this.to <= -width) {
       return;
     } else if (this.to - modifier <= -width) {
@@ -74,11 +75,17 @@ export class TrendingComponent implements OnInit {
         { transform: 'translateX(' + this.to + 'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards',easing:'ease-in'
       });
     }
     this.from = this.to;
+  }
+
+  player(song:any){
+    var obj=new MiniplayerComponent();
+    song.name=song.name;
+    obj.playNow(song);
   }
 
   ngOnInit(): void {

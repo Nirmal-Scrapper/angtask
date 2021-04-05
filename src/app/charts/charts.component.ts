@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiniplayerComponent } from '../miniplayer/miniplayer.component';
 import { SericeService } from '../service/serice.service';
 
 @Component({
@@ -36,7 +37,9 @@ export class ChartsComponent implements OnInit {
   //   }
   // }
   sliderLeft($event) {
-    let modifier=500;
+    var conwidth = document.getElementById('topCharts').offsetWidth;
+    var cardwidth=document.getElementById(this.charts[0].langauge).offsetWidth;
+    let modifier = conwidth-cardwidth;
     if(this.to>=0){
       return;
     }else if(this.to+modifier>=0){
@@ -51,8 +54,8 @@ export class ChartsComponent implements OnInit {
         { transform: 'translateX('+this.to+'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards',easing:'ease-in'
       });
     }
     this.from=this.to;
@@ -64,7 +67,7 @@ export class ChartsComponent implements OnInit {
     console.log(conwidth,cardwidth);
     var width= ((cardwidth+40)*this.charts.length)-conwidth;
     console.log(conwidth,cardwidth,width);
-    let modifier=500;
+    let modifier = conwidth-cardwidth;
     if(this.to<=-width){
       return;
     } else if(this.to-modifier<=-width){
@@ -79,8 +82,9 @@ export class ChartsComponent implements OnInit {
         { transform: 'translateX('+this.to+'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards',
+        easing:'ease-in'
       });
     }
     this.from=this.to;
@@ -89,6 +93,13 @@ export class ChartsComponent implements OnInit {
     return this.colors[index % 5];
 
   }
+
+  player(song:any){
+    var obj=new MiniplayerComponent();
+    song.name=song.langauge;
+    obj.playNow(song);
+  }
+
   ngOnInit(): void {
     this.ComponentService.getTopCharts()
       .subscribe(data1 => {
@@ -99,9 +110,12 @@ export class ChartsComponent implements OnInit {
   }
 }
 
-window.onload = (event) => {
-  //alert("ok");
-  // let mm = new ChartsComponent(ComponentService);
-  //mm.back();
 
+
+window.onload = (event) => {
+  
 };
+
+window.onresize=(event)=>{
+
+}

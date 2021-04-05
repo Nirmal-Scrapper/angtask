@@ -1,10 +1,16 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p class="heading">TOP CHARTS</p>
 <div class="topCharts" id="topCharts" >
     <div class="cards" >
         <div *ngFor="let chart of charts;let i=index" class="chartcard {{chart.langauge}}" [ngStyle]="{backgroundColor:getColor(i)}" id="{{chart.langauge}}"> 
             <div>
                 <span>{{chart.langauge}}</span><br>
-                <span>{{chart.songCount}}</span>
+                <span>{{chart.songCount}} songs</span>
+            </div>
+            <div class="play">
+                <button (click)="player(chart)"> 
+                    <i class="material-icons" style="font-size:50px">play_arrow</i>
+                </button>
             </div>
         </div>
     </div>

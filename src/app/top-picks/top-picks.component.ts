@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiniplayerComponent } from '../miniplayer/miniplayer.component';
 import { SericeService } from '../service/serice.service';
 @Component({
   selector: 'top-picks',
@@ -12,7 +13,7 @@ export class TopPicksComponent implements OnInit {
   to = 0;
   constructor(private ComponentService: SericeService) {
 
-   }
+  }
   slider($event) {
     let cards = document.querySelectorAll(".topcard");
     for (let i = 0; i < cards.length; i++) {
@@ -20,7 +21,9 @@ export class TopPicksComponent implements OnInit {
     }
   }
   sliderLeft($event) {
-    let modifier = 500;
+    var conwidth = document.getElementById('topPicks').offsetWidth;
+    var cardwidth = document.getElementById(this.picks[0].playlistName).offsetWidth;
+    let modifier = conwidth - cardwidth;
     if (this.to >= 0) {
       return;
     } else if (this.to + modifier >= 0) {
@@ -35,8 +38,8 @@ export class TopPicksComponent implements OnInit {
         { transform: 'translateX(' + this.to + 'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards', easing: 'ease-in'
       });
     }
     this.from = this.to;
@@ -48,7 +51,7 @@ export class TopPicksComponent implements OnInit {
     console.log(conwidth, cardwidth);
     var width = ((cardwidth + 0) * this.picks.length) - conwidth;
     console.log(conwidth, cardwidth, width);
-    let modifier = 500;
+    let modifier = conwidth - (cardwidth / 2);
     if (this.to <= -width) {
       return;
     } else if (this.to - modifier <= -width) {
@@ -63,12 +66,26 @@ export class TopPicksComponent implements OnInit {
         { transform: 'translateX(' + this.to + 'px)' }
       ], {
         // timing options
-        duration: 300,
-        fill: 'forwards'
+        duration: 500,
+        fill: 'forwards', easing: 'ease-in'
       });
     }
     this.from = this.to;
   }
+
+  player(song: any) {
+    var obj = new MiniplayerComponent();
+    song.name = song.playlistName;
+    //let card = document.getElementById(song.playlistName + "button");
+    //if (card.innerHTML == "play_arrow") {
+      //card.innerHTML = "pause";
+      obj.playNow(song);
+    // }else{
+    //   card.innerHTML="play_arrow";
+    //   obj.playPause();
+    // }
+  }
+
   ngOnInit(): void {
     this.ComponentService.getTopPicks()
       .subscribe(data1 => {

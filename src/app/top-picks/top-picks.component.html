@@ -1,10 +1,18 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p class="heading">TOP PICKS</p>
 <div class="topPicks" id="topPicks">
     <div class="cards">
         <div *ngFor="let pick of picks" class="topcard" id="{{pick.playlistName}}">
-            <div class="{{pick.playlistName}} card" style="background-image: url({{pick.image}})">
+            <div class="{{pick.playlistName}} card" style="background-image: url({{pick.image}})"> 
+                <div class="play">
+                    <button (click)="player(pick)" >
+                        <i class="material-icons" id="{{pick.playlistName}}button" style="font-size:50px">play_arrow</i>
+                    </button>
+                </div>
             </div>
+            
             <span>{{pick.playlistName}}</span><br>
+            
         </div>
         <button class="left" (click)="sliderLeft($event)"> < </button>
         <button class="right" (click)="sliderRight($event)"> > </button>
